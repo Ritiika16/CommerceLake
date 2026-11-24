@@ -1,0 +1,47 @@
+# Python virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment variables and credentials
+.env
+.env.*
+!.env.example
+.databrickscfg
+*.pem
+*.key
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE configuration
+.vscode/
+.idea/
+
+# Generated datasets
+data/
+*.csv
+*.parquet
+
+# Logs
+logs/
+*.log
+
+# Databricks local state
+.databricks/
+
+# Spark and Delta local artifacts
+spark-warehouse/
+metastore_db/
+_delta_log/
+checkpoints/
+
+# Operating system
+.DS_Store
+Thumbs.db
