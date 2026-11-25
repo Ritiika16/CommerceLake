@@ -1,0 +1,55 @@
+project:
+  name: CommerceLake
+  environment: development
+
+databricks:
+  catalog: commercelake
+
+  schemas:
+    landing: landing
+    bronze: bronze
+    silver: silver
+    gold: gold
+    quarantine: quarantine
+    monitoring: monitoring
+
+storage:
+  volume: source_data
+  base_path: /Volumes/commercelake/landing/source_data
+
+sources:
+  customers:
+    format: csv
+    directory: customers
+    primary_key: customer_id
+
+  products:
+    format: csv
+    directory: products
+    primary_key: product_id
+
+  orders:
+    format: json
+    directory: orders
+    primary_key: order_id
+
+  order_items:
+    format: parquet
+    directory: order_items
+    primary_key: order_item_id
+
+  payments:
+    format: json
+    directory: payments
+    primary_key: payment_id
+
+delta:
+  format: delta
+
+pipeline:
+  timezone: UTC
+  batch_prefix: batch_
+  max_retries: 3
+
+logging:
+  level: INFO
